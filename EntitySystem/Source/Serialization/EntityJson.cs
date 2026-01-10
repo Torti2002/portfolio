@@ -7,17 +7,15 @@ public namespace EntitySystem.Serialization
 {
     public static class EntityJson
     {
-        // Gemeinsame JSON-Settings (für EntityGhost & Save/Load)
         public static readonly JsonSerializerSettings Settings = new()
         {
             Formatting = Formatting.Indented,
             NullValueHandling = NullValueHandling.Ignore,
             ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
-            // TypeNameHandling = TypeNameHandling.None // bewusst so lassen
+            // TypeNameHandling = TypeNameHandling.None
         };
     }
 
-    // Converter kannst du hier lassen (oder in eigene Dateien)
     public class Vector3Converter : JsonConverter<Vector3>
     {
         public override void WriteJson(JsonWriter writer, Vector3 v, JsonSerializer s)

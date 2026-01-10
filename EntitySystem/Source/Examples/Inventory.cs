@@ -77,7 +77,7 @@ public namespace EntitySystem.Examples
                 }
             }
 
-            // 3) kein Platz -> optional: verwerfen oder capacity erhöhen
+            // 3) kein Platz
             Debug.LogWarning("Inventory full – AddItem failed.");
         }
 
@@ -200,7 +200,7 @@ public namespace EntitySystem.Examples
 
             if (RemoveFullStack(index))
             {
-                // return World.Instance.TrySpawnEntity(ghost, position);
+                // Here you could spawn the item into the 3D world
             }
 
             Debug.LogWarning("[Inventory]: Could not drop the item because... "); 

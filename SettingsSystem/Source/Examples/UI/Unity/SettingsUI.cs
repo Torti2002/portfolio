@@ -13,7 +13,7 @@ public class SettingsUI : MonoBehaviour
     [SerializeField] private GameObject sliderWidgetPrefab;
     [SerializeField] private GameObject toggleWidgetPrefab;
 
-    [SerializeField] private CategoryButton   categoryButtonPrefab; // kleines Script, s.u.
+    [SerializeField] private CategoryButton   categoryButtonPrefab;
 
     [SerializeField] private Transform widgetsContentParent;
     [SerializeField] private Transform categoriesContentParent;
@@ -24,7 +24,7 @@ public class SettingsUI : MonoBehaviour
     [SerializeField] private TMP_InputField searchInput;
 
     private string activeCategory = "All";                        // default
-    private string currentQuery = "";                              // aktueller Suchstring (lowercased)
+    private string currentQuery = "";                             // aktueller Suchstring (lowercased)
 
 
 
@@ -47,7 +47,7 @@ public class SettingsUI : MonoBehaviour
         // Wenn noch keine aktiv, „All“
         activeCategory ??= "All";
 
-        // Widgets bauen (optional sortiert)
+        // Widgets bauen
         foreach (var setting in all)
         {
             //if (activeCategory != "Alle" && !string.Equals(setting.Definition.category, activeCategory, StringComparison.OrdinalIgnoreCase))
@@ -90,7 +90,7 @@ public class SettingsUI : MonoBehaviour
             commitAndCloseSettingsButton.onClick.RemoveAllListeners();
             commitAndCloseSettingsButton.onClick.AddListener(() =>
             {
-                // Speichern: Snapshot verwerfen (on-change ist bereits persistiert)
+                // Speichern: Snapshot verwerfen
                 SettingSystemV1.Instance.CommitAndCloseSettings();
             });
         }
@@ -99,7 +99,7 @@ public class SettingsUI : MonoBehaviour
         {
             searchInput.onValueChanged.RemoveAllListeners();
             searchInput.onValueChanged.AddListener(OnSearchChanged);
-            // falls du den zuletzt gesetzten Query behalten willst:
+
             if (!string.Equals(searchInput.text, currentQuery, System.StringComparison.Ordinal))
                 searchInput.SetTextWithoutNotify(currentQuery);
         }
@@ -177,7 +177,7 @@ public class SettingsUI : MonoBehaviour
             foreach (var t in terms)
             {
                 if (!(hayKey.Contains(t) || hayDesc.Contains(t) || hayTags.Contains(t)))
-                    return false; // ein Term nicht gefunden -> raus
+                    return false; // ein Term nicht gefunden -> rreturn
             }
         }
 

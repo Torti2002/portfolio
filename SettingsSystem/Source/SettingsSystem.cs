@@ -311,7 +311,7 @@ public class SettingSystemV1 : MonoBehaviour
     }
 
     /// <summary>
-    /// Persists all dirty settings to disk
+    /// Write all dirty settings to disk
     /// </summary>
     public void FlushDirty()
     {
