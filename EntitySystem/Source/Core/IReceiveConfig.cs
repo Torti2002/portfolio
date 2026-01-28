@@ -1,9 +1,9 @@
-public namespace EntitySystem.Core
+/// <summary>
+/// Komponente kann einen mit Zustand initlialisiert werden
+/// </summary>
+/// <typeparam name="TConfig"></typeparam>
+public interface IReceiveConfig<TConfig>
 {
-    // Komponente kann einen mit Zustand initlialisiert werden
-    public interface IReceiveConfig<TConfig>
-    {
-        void ApplyConfig(TConfig config);
-        System.Type GetConfigType();
-    }
+    void ApplyConfig(TConfig config);
+    System.Type GetConfigType();
 }

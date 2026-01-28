@@ -1,10 +1,10 @@
-public namespace EntitySystem.Core
+/// <summary>
+/// Komponente kann einen Laufzeit-Zustand wiederherstellen
+/// </summary>
+/// <typeparam name="TState"></typeparam>
+public interface IReceiveState<TState>
 {
-    // Komponente kann einen Laufzeit-Zustand wiederherstellen
-    public interface IReceiveState<TState>
-    {
-        void SetState(TState state);
-        TState GetState();
-        System.Type GetStateType();
-    }
+    void SetState(TState state);
+    TState GetState();
+    System.Type GetStateType();
 }
